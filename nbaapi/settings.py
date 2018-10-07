@@ -78,10 +78,10 @@ WSGI_APPLICATION = 'nbaapi.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'sql_server.pyodbc',
-        'NAME': 'nba',
-        'USER': 'marmurr',
-        'PASSWORD': 'c3b3rbr&d',
-        'HOST': 'nabi.database.windows.net',
+        'NAME': os.environ.get('DBNAME'),
+        'USER': os.environ.get('DBUSER'),
+        'PASSWORD': os.environ.get('DBPASS'),
+        'HOST': os.environ.get('DBHOST'),
         'PORT': '',
         'OPTIONS': {
             'driver': 'ODBC Driver 17 for SQL Server',
