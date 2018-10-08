@@ -8,5 +8,6 @@ router.register(r'players', views.PlayerViewSet, base_name='players')
 
 urlpatterns = [
     #path('', views.PlayerViewSet.as_view()),
+    path('players/', views.AllPlayerViewSet.as_view()),
     path('players/<str:aname>', views.PlayerViewSet.as_view()),
 ]
