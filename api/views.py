@@ -5,9 +5,15 @@ from .serializers import PlayerSerializer
 # Create your views here.
 
 class PlayerViewSet(generics.ListCreateAPIView):
-    queryset = Players.objects.filter(aname='abdelal01')
     serializer_class = PlayerSerializer
 
-class AllPlayerViewSet(generics.ListCreateAPIView):
+    def get_queryset(self):
+        name = self.kwargs['aname']
+        return Players.objects.filter(aname=name)
+
+    #queryset = Players.objects.filter(aname=name)
+    
+
+class AllPlayerViewSet(generics.ListAPIView):
     queryset = Players.objects.all()
     serializer_class = PlayerSerializer
